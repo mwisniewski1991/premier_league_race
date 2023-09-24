@@ -4,7 +4,12 @@
 Create simple web app to show Premier League title race. 
 
 ## Stack
-- Python 
+- Web parser
+    - Python
+        - Pandas pipe
+- Web server
+    - Python
+        - Plotly Dash
 
 ## Project Details
 
