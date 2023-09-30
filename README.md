@@ -12,8 +12,9 @@ Create simple web app to show Premier League title race.
         - Plotly Dash
 
 ## Project Details
+### Data and DB
+### WebApp
 
 ## To Do Plan
-- Create proces to generate pl race table,
 - add documentation to all functions,
-- fullfill README.md,
+- style line chart
