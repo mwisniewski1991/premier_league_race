@@ -15,7 +15,6 @@ def extract_teams_score(df:pd.DataFrame, score_column:str) -> pd.DataFrame:
     df[['home_score', 'away_score']] = df[score_column].str.split(pat='–',expand=True).astype('float16')
     return df
 
-
 def calculate_teams_points(home_score:float, away_score:float, calc_for_team:str='home') -> pd.DataFrame:
     if calc_for_team == 'home':
         if home_score > away_score:
@@ -29,7 +28,6 @@ def calculate_teams_points(home_score:float, away_score:float, calc_for_team:str
         if home_score == away_score:
             return 1
         return 0 
-    
 
 def extract_teams_points(df:pd.DataFrame, home_score_column:str, away_score_columns:str, calc_for_team:str='home') -> pd.DataFrame:
     temp_series =  df[[home_score_column, away_score_columns]].apply(lambda row: calculate_teams_points(row[home_score_column], row[away_score_columns], calc_for_team), axis=1)
@@ -50,7 +48,7 @@ def create_race_table(df:pd.DataFrame) -> pd.DataFrame:
 
         team_table:pd.DataFrame =  df.query(f' Home == "{team}" or Away == "{team}" ').copy()
         match_order:pd.Series = team_table['datetime'].rank()
-        points:pd.Series = team_table.apply(lambda row: row['home_points'] if row['Home'] == '{team}' else row['away_points'], axis=1)
+        points:pd.Series = team_table.apply(lambda row: row['home_points'] if row['Home'] == team else row['away_points'], axis=1)
         points_cum:pd.Series = points.cumsum()
 
         new_tables_list.append(
