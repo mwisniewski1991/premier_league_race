@@ -4,17 +4,21 @@
 Create simple web app to show Premier League title race. 
 
 ## Stack
-- Web parser
+- Web Scraper
     - Python
         - Pandas pipe
-- Web server
+- Web Server
     - Python
-        - Plotly Dash
+        - Streamlit
+- Database
+    - sqlite
 
 ## Project Details
-### Data and DB
-### WebApp
+Dashboard, built on Streamlit, shows the Premier League race. 
+The data is scraped from the fbref.com website and then visualized on one simple chart. 
+
+Application is wrapped in a Docker container.
+
 
 ## To Do Plan
-- add documentation to all functions,
-- style line chart
+- Add goals scorer race?
